@@ -1,2 +1,2 @@
 # AOC2017_ABAP
-Advent of Code Solutions in ABAP - 2017 Edition (Influenced by @furlan)
+My solutions for Advent of Code in ABAP - 2017 Edition (Influenced by @furlan)
