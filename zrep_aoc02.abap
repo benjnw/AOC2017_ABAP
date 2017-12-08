@@ -97,7 +97,7 @@ CLASS lcl_test_aoc DEFINITION FOR TESTING
     METHODS:
       setup,
       test_split FOR TESTING,
-      test_checksum_18 FOR TESTING.
+      test_checksum_5195 FOR TESTING.
 
 ENDCLASS.
 
@@ -120,12 +120,12 @@ CLASS lcl_test_aoc IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD test_checksum_18.
+  METHOD test_checksum_5195.
 
     me->solver->add_row( '1111 2222  3333  4444 60' ).
     me->solver->add_row( '77 888 97' ).
 
-    DATA(checksum) = me->solver->challenge( ). "8;4;6
+    DATA(checksum) = me->solver->challenge( ).
     cl_aunit_assert=>assert_equals( exp = 5195  act = checksum ).
 
   ENDMETHOD.
