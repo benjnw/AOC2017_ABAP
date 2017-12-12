@@ -151,7 +151,7 @@ START-OF-SELECTION.
   DATA lt_input TYPE STANDARD TABLE OF string WITH NON-UNIQUE EMPTY KEY.
   CALL FUNCTION 'GUI_UPLOAD'
     EXPORTING
-      filename = 'C:\Users\TCBJ00991773\Documents\ABAP_BEN\aoc_day6.txt'
+      filename = 'YOUR\PATH\HERE\file.txt'
       filetype = 'ASC'
     TABLES
       data_tab = lt_input.
