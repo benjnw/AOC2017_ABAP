@@ -30,10 +30,10 @@ CLASS lcl_aoc IMPLEMENTATION.
 
   METHOD set_guid.
 
-    LOOP AT me->gt_input INTO DATA(ls_input).
-      r_guid = r_guid && ls_input && '-'.
-      CONDENSE r_guid NO-GAPS.
-    ENDLOOP.
+    r_guid = REDUCE string( INIT result = ||
+                            FOR line IN me->gt_input
+                            NEXT result = result && line && '-' ).
+    CONDENSE r_guid NO-GAPS.
 
   ENDMETHOD.
 
