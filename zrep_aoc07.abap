@@ -51,6 +51,7 @@ CLASS lcl_aoc IMPLEMENTATION.
 
     APPEND LINES OF me->gt_circus TO me->gt_discs.
     SORT me->gt_discs BY table_line.
+    "any ways to do this using DELETE ADJASCENT DUPLICATES?
 
     DATA my TYPE char20.
     DATA prev TYPE sy-tabix.
