@@ -14,7 +14,6 @@ CLASS lcl_aoc DEFINITION.
 
     DATA gt_input TYPE tt_row.
     DATA gt_circus TYPE tt_circus.
-    DATA gt_discs TYPE tt_circus.
 
     METHODS:
       challenge  IMPORTING it_input      TYPE tt_row
@@ -44,19 +43,18 @@ CLASS lcl_aoc IMPLEMENTATION.
       SUBMATCHES DATA(discs).
       IF sy-subrc EQ 0.
         SPLIT discs AT ', ' INTO TABLE DATA(lt_discs).
-        APPEND LINES OF lt_discs TO me->gt_discs.
+        APPEND LINES OF lt_discs TO me->gt_circus.
       ENDIF.
 
     ENDLOOP.
 
-    APPEND LINES OF me->gt_circus TO me->gt_discs.
-    SORT me->gt_discs BY table_line.
+    SORT me->gt_circus BY table_line.
     "any ways to do this using DELETE ADJASCENT DUPLICATES?
 
     DATA my TYPE char20.
     DATA prev TYPE sy-tabix.
     DATA next TYPE sy-tabix.
-    LOOP AT me->gt_discs INTO DATA(curr_disc).
+    LOOP AT me->gt_circus INTO DATA(curr_disc).
 
       IF sy-tabix EQ 1.
         prev = next = 1.
@@ -65,8 +63,8 @@ CLASS lcl_aoc IMPLEMENTATION.
         next = sy-tabix + 1.
       ENDIF.
 
-      IF ( me->gt_discs[ prev ] EQ curr_disc ) OR
-         ( me->gt_discs[ next ] EQ curr_disc ).
+      IF ( me->gt_circus[ prev ] EQ curr_disc ) OR
+         ( me->gt_circus[ next ] EQ curr_disc ).
         CONTINUE.
       ELSE.
         r_avai = curr_disc.
